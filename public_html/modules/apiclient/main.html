@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" href="[themefullpath]/plugins/jsgrid/jsgrid.min.css">
+<link rel="stylesheet" href="[themefullpath]/plugins/jsgrid/jsgrid-theme.min.css">
+<link rel="stylesheet" href="[baseurl]modules/direct/style/style.css">
+<script src="[themefullpath]/plugins/jquery/jquery.min.js"></script>
+<script src="[themefullpath]/plugins/jsgrid/demos/db.js"></script>
+<script src="[themefullpath]/plugins/jsgrid/jsgrid.min.js"></script>
+
+
+<section id="direct">
+  <div class="container-fluid">
+  	<div class="row">
+
+      <!-- list -->
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+          	<div class="card-tools float-left">
+          		<h5>Warehouse</h5>
+          	</div>
+            <div class="card-tools float-right">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="q" id="q" class="form-control float-right" placeholder="Search" value="">
+                <div class="input-group-append">
+                  <button id="btn-Search" type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="client-grid"></div>
+          </div>
+        </div>
+    
+      </div>
+      <!-- /list -->
+
+  	</div>
+  </div>
+  <div class="container separator">
+    <div class="row">
+        &nbsp;
+    </div>
+  </div>
+
+  <div class="container info">
+    <div class="row"><div class="col-lg-12">
+      <p>Halaman ini merupakan contoh cara akses database menggunakan cara <i>API</i>. Cara menampilkannya dibantu dengan sedikit pemrograman Javascript, kali ini memanfaatkan pustaka jQuery.</p>
+      <p>Terlebih dahulu mesti dipersiapkan project API-nya, isinya mirip dengan contoh akses database menggunakan <a href="/model">ORM Model</a>, hanya saja output dibuat dalam format json, yang isinya kurang lebih seperti berikut:</p>
+      <img src="/files/images/api-01.png">
+      <p>Kode pascal untuk API-nya akan seperti ini:</p>
+<code>
+  json['code'] := 404;
+  warehouses.AddJoin('locations', 'id', 'warehouses.location_id', ['code country_code','name country']);
+  if warehouses.Find(whereAsArray) then
+  begin
+    json['code'] := 0;
+    json['count'] := warehouses.RecordCount;
+    json.ValueArray['data'] := warehouses.AsJsonArray(False);
+  end;
+
+  Response.Content := json.AsJSON;
+  
+</code>      
+
+
+      <p>File-file kode yang berkaitan dengan halaman ini adalah:</p>
+<code>pascal: source/api/controller/warehouse_controller.pas
+
+</code>
+    </div></div>
+</div>
+
+</section>
+<script src="[baseurl]modules/apiclient/js/warehouse.js" async defer></script>
