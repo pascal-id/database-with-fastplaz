@@ -2,7 +2,7 @@
 
 Aplikasi ini menunjukkan contoh akses ke database dengan menggunakan [FastPlaz](https://fastplaz.com), salah satu [Web Framework untuk bahasa Pascal](https://fastplaz.com). 
 
-Menggunakan 3 model cara, yaitu dengan 
+Menggunakan 3 metode, yaitu dengan 
 
 - Direct Query, 
 - ORM Model, 
@@ -10,7 +10,7 @@ Menggunakan 3 model cara, yaitu dengan
 
 Aplikasi ini dibuat dengan sederhana untuk percontohan, tanpa menggunakan autentikasi/verifikasi.
 
-Sumber database menggunakan [Project Inventory](https://github.com/hidayat365/yii2-inventory-app/blob/master/migrations/scripts/tables.sql) dari om Nur Hidayat.
+Sumber database menggunakan [Project Inventory](https://github.com/hidayat365/yii2-inventory-app/blob/master/migrations/scripts/tables.sql) dari om [Nur Hidayat](https://github.com/hidayat365).
 
 ## Metode Akses
 
