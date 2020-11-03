@@ -19,7 +19,7 @@ Sumber database menggunakan [Project Inventory](https://github.com/hidayat365/yi
 
 ![Screenshot](docs/images/direct.png)
 
-Ini merupakan contoh cara akses database menggunakan cara *Direct Query*.
+Cara ini sepertinya cara yang sudah paling umum digunakan oleh para developer, dengan menggunakan query langsung untuk mengakses database.
 
 Contoh kode sumbernya sebagai berikut:
 
