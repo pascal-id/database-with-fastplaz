@@ -61,35 +61,39 @@ Terlebih dahulu mesti dipersiapkan project API-nya, isinya mirip dengan contoh a
 ```json
 {
   "code": 0,
-  "count": 3,
-  "data": [
-    {
-      "id": 1,
-      "code": "IDW01",
-      "name": "Raw Material ID",
-      "location_id": 1,
-      "country_code": "ID",
-      "country": "Indonesia"
-    },
-    {
-      "id": 3,
-      "code": "MYW01",
-      "name": "Raw Material MY",
-      "location_id": 2,
-      "country_code": "MY",
-      "country": "Malaysia"
-    },
-    {
-      "id": 5,
-      "code": "SAW01",
-      "name": "Raw Material SA",
-      "location_id": 3,
-      "country_code": "SA",
-      "country": "Saudi Arabia"
-    }
-  ]
+  "request": {
+    "query": "raw"
+  },
+  "response": {
+    "count": 3,
+    "data": [
+      {
+        "id": 1,
+        "code": "IDW01",
+        "name": "Raw Material ID",
+        "location_id": 1,
+        "country_code": "ID",
+        "country": "Indonesia"
+      },
+      {
+        "id": 3,
+        "code": "MYW01",
+        "name": "Raw Material MY",
+        "location_id": 2,
+        "country_code": "MY",
+        "country": "Malaysia"
+      },
+      {
+        "id": 5,
+        "code": "SAW01",
+        "name": "Raw Material SA",
+        "location_id": 3,
+        "country_code": "SA",
+        "country": "Saudi Arabia"
+      }
+    ]
+  }
 }
-
 ```
 
 Kode sumber pascal-nya akan seperti berikut:
@@ -97,12 +101,13 @@ Kode sumber pascal-nya akan seperti berikut:
 ```pascal
 
   json['code'] := 404;
+  json['request/query'] := keyword;
   warehouses.AddJoin('locations', 'id', 'warehouses.location_id', ['code country_code','name country']);
   if warehouses.Find(whereAsArray) then
   begin
     json['code'] := 0;
-    json['count'] := warehouses.RecordCount;
-    json.ValueArray['data'] := warehouses.AsJsonArray(False);
+    json['response/count'] := warehouses.RecordCount;
+    json.ValueArray['response/data'] := warehouses.AsJsonArray(False);
   end;
   Response.Content := json.AsJSON;
 ```
