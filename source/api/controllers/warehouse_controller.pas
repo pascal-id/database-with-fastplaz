@@ -63,12 +63,13 @@ begin
 
   json := TJSONUtil.Create;
   json['code'] := 404;
+  json['request/query'] := keyword;
   warehouses.AddJoin('locations', 'id', 'warehouses.location_id', ['code country_code','name country']);
   if warehouses.Find(whereAsArray) then
   begin
     json['code'] := 0;
-    json['count'] := warehouses.RecordCount;
-    json.ValueArray['data'] := warehouses.AsJsonArray(False);
+    json['response/count'] := warehouses.RecordCount;
+    json.ValueArray['response/data'] := warehouses.AsJsonArray(False);
   end;
 
   Response.Content := json.AsJSON;

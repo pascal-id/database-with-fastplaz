@@ -36,7 +36,7 @@ $(function () {
             dataType: "json"
           }).done(function(response) {
             if (0 == response.code){
-              d.resolve(response.data);
+              d.resolve(response.response.data);
             }
           });
           return d.promise();
