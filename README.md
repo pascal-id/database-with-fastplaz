@@ -10,7 +10,7 @@ Menggunakan 3 metode, yaitu dengan
 
 Aplikasi ini dibuat dengan sederhana untuk percontohan, tanpa menggunakan autentikasi/verifikasi.
 
-Sumber database menggunakan [Project Inventory](https://github.com/hidayat365/yii2-inventory-app/blob/master/migrations/scripts/tables.sql) dari om [Nur Hidayat](https://github.com/hidayat365).
+Sumber database menggunakan [Project Inventory](https://github.com/hidayat365/yii2-inventory-app/tree/master/migrations/scripts) dari om [Nur Hidayat](https://github.com/hidayat365).
 
 ## Metode Akses
 
