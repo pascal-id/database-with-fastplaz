@@ -8,7 +8,7 @@
       "type": "shell",
       "command": "cd source/web && ./build.sh app",
       "problemMatcher": []
-    }
+    },
     {
       "label": "Build API",
       "type": "shell",
