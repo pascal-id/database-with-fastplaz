@@ -2,3 +2,16 @@
 #   https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
 GET http://inventory.carik.test/api.bin/warehouse/?q=mat
+
+
+###  Post Example
+
+POST http://inventory.carik.test/
+Authorization:
+Content-Type: application/x-www-form-urlencoded
+
+variable=value
+&var2=val2
+
+
+
