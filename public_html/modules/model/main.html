@@ -6,11 +6,11 @@
         <h3>Warehouse (ORM Model)</h3>
         <table>
             <thead>
-                <tr><th>Code</th><th>Name</th><th>Country</th></tr>
+                <tr><th>&nbsp;</th><th>Code</th><th>Name</th><th>Country</th></tr>
             </thead>
             <tbody>
                 [foreach from=$Warehouses item=aItem type=table]
-                <tr><td>[aItem.code]</td><td>[aItem.name]</td><td>[aItem.country]</td></tr>
+                <tr><td>[$index].</td><td>[aItem.code]</td><td>[aItem.name]</td><td>[aItem.country]</td></tr>
                 [/foreach from=$Warehouses]
             </tbody>
         </table>

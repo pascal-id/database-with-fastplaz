@@ -36,7 +36,15 @@ $(function () {
             dataType: "json"
           }).done(function(response) {
             if (0 == response.code){
-              d.resolve(response.response.data);
+              //i = 0;
+              //response.response.data.forEach(element => {
+              //  response.response.data[i].row_index = i+1;
+              //  i++;
+              //});
+              //d.resolve(response.response.data);
+              d.resolve($.map(response.response.data, function (item, itemIndex) {
+                return $.extend(item, { "row_index": itemIndex + 1 });
+              }));
             }
           });
           return d.promise();
@@ -44,11 +52,12 @@ $(function () {
       },
 
       fields: [
-          { name: "code", type: "text", title: "Code" },
-          { name: "name", type: "text", width: 200, title: "Warehouse Name" },
-          { name: "country_code", type: "text", title: "County Code"},
-          { name: "country", type: "text", title: "Country" },
-          { type: "control" }
+        { name: "row_index", title: "", width: 20},
+        { name: "code", type: "text", title: "Code" },
+        { name: "name", type: "text", width: 200, title: "Warehouse Name" },
+        { name: "country_code", type: "text", title: "County Code"},
+        { name: "country", type: "text", title: "Country" },
+        { type: "control" }
       ]
   });
 });
